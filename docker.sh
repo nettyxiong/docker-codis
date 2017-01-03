@@ -59,10 +59,9 @@ fe)
 	 --read-only \
 	 	-v `realpath assets/`:/codis/assets/ \
          	-v `realpath log`:/codis/log \
-         	-v `realpath config/fe.json`:/codis/fe.json \
          -p 8080:8080 \
      sxiong/codis \
-     codis-fe --ncpu 2 -l log/fe.log -d fe.json --listen :8080
+     codis-fe --ncpu 2 -l log/fe.log --zookeeper ${hostip}:2181 --listen :8080
     ;;
 
 cleanup)
